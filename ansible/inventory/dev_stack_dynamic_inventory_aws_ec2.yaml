@@ -1,0 +1,17 @@
+plugin: aws_ec2
+regions:
+  - "us-east-1"
+filters:
+  tag:Project: tera-kube-ans # bu 2 tag ile isaretli olanlari ve running olanlari filtreliyorum
+  tag:environment: dev
+  instance-state-name: running
+keyed_groups:
+  - key: tags['Project'] # bunlari all_instances olarak gruplayacak
+    prefix: 'all_instances'
+  - key: tags['Role'] # bunlari da role olarak grupla
+    prefix: 'role'
+hostnames:
+  - "ip-address"
+
+compose:
+  ansible_user: "'ubuntu'"
