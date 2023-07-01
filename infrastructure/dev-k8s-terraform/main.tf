@@ -148,7 +148,7 @@ EOF
 }
 
 resource "aws_iam_instance_profile" "petclinic-master-server-profile" {
-  name = "petclinic-master-server-profile-3"
+  name = "petclinic-master-server-profile-1"
   role = aws_iam_role.petclinic-master-server-s3-role.name
 }
 
